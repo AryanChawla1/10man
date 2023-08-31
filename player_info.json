@@ -1,0 +1,201 @@
+{
+    "players": [
+        {
+            "name": "test_1",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "TOP"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_2",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "TOP"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_3",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "JG"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_4",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "JG"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_5",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "MID"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_6",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "MID"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_7",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "BOT"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_8",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "BOT"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_9",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "test_10",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "adib",
+            "rank": "LOW_PLAT",
+            "roles": [
+                "TOP",
+                "BOT"
+            ],
+            "games_played": 0,
+            "elo": 800
+        },
+        {
+            "name": "kevin",
+            "rank": "HIGH_PLAT",
+            "roles": [
+                "TOP"
+            ],
+            "games_played": 0,
+            "elo": 900
+        },
+        {
+            "name": "david",
+            "rank": "HIGH_BRONZE",
+            "roles": [
+                "TOP",
+                "JG",
+                "BOT"
+            ],
+            "games_played": 0,
+            "elo": 300
+        },
+        {
+            "name": "aryan",
+            "rank": "LOW_SILVER",
+            "roles": [
+                "TOP",
+                "JG",
+                "MID",
+                "BOT",
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 400
+        },
+        {
+            "name": "ibrahim",
+            "rank": "LOW_GOLD",
+            "roles": [
+                "MID",
+                "TOP"
+            ],
+            "games_played": 0,
+            "elo": 600
+        },
+        {
+            "name": "darien",
+            "rank": "LOW_BRONZE",
+            "roles": [
+                "MID",
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 200
+        },
+        {
+            "name": "michael",
+            "rank": "HIGH_SILVER",
+            "roles": [
+                "TOP",
+                "JG",
+                "MID",
+                "BOT",
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 500
+        },
+        {
+            "name": "gael",
+            "rank": "LOW_EMERALD",
+            "roles": [
+                "TOP",
+                "JG",
+                "MID",
+                "BOT",
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 1000
+        },
+        {
+            "name": "angela",
+            "rank": "LOW_BRONZE",
+            "roles": [
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 200
+        },
+        {
+            "name": "mat",
+            "rank": "LOW_BRONZE",
+            "roles": [
+                "SUP"
+            ],
+            "games_played": 0,
+            "elo": 200
+        }
+    ]
+}
