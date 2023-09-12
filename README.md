@@ -28,24 +28,32 @@ pip install -r requirements.txt
 
 ### Player Creation
 
-Create players using `player_creator.py`. Make sure to include `--name`, `--rank`, and `--role`. Rank must be low/high of rank, with the exception of master, grandmater and challenger. Role should be prioritized; `fill` can be used for all roles.
+Create players using `player_creator.py`. Make sure to include `--name`, `--rank`, and `--roles`. Rank must be low/high of rank, with the exception of master, grandmater and challenger. Role should be prioritized; `fill` can be used for all roles. More details about fill can be found below.
 Created player will start off with elo solely considering the rank, however, as games continue, a proper elo will be calculated based on performance and lane performance.
+
+#### Fill Design
+
+The problem with fill is that player can still have preference for roles. For example, a player can play every role, but have a preference for all 5 roles: top, mid, adc, jg sup. You could also not have a preference at all, and be ok with anything. Finally, you could just have a preference for one role, jg, and play everything else comfortably but obviously not as comfortable as fill. The solution is to include fill into the `role` enum class. Then, it could be used as a wildcard in `game_creation` with it's index still having significance, as the preference.
+
+Additionally, after `fill`, `not ...` can be used (eg `not bot`) to signify that despite being fill, they don't want to be that role. The significance for this is to allow players to have equal preference for a select number of roles greater than 1 and less than 5. To show how it works I can enter: `--roles="jg, fill, not bot`. This would mean `jg` has number 1 priority, then `mid, top, sup` at equal preference below `jg` and finally `bot` being excluded as an option completely.
 
 Current Issues:
 
-- If you play all five roles, or fill, there currently isn't a way to set a preference for them, it will assume you equally prefer all of them.
 - Rank/Elo could be different based on role
 
 ### Game Creation
 
-Create game assigning 10 players filtered via player name. Will permutate all possibilities and only consider those with each player getting a role they prefer. The score is the elo difference between the team, but also considers the preference of that role. For example two comps created with the same elo difference with one having every player on their primary role, whereas the other with players on their secondary role would have a difference for the creation; in this case the first one is chosen.
+Create game assigning 10 players filtered via player name. Will permutate all possibilities and only consider those with each player getting a role they prefer. The score is the elo difference between the team, but also considers the preference of that role. For example two comps created with the same elo difference with one having every player on their primary role, whereas the other with players on their secondary role would have a difference for the creation; in this case the first one is chosen. The created game will record the teams onto `game_data.json` for post game adjustment.
 
 Use `--names` and make sure to seperate everything via `, `.
 
 Current Issues:
 
-- Matchup disparities should be deincentivized, this should be added
-- Currently, the punishment for having players in the second role is not that big of a decision factor in teammaking, should be discussed
+- Should bot lane be considered differently
+
+### Post Game Adjustment
+
+After the game, using this tool using the `--results` option and 6 parameters (winnning team and gold difference at 15 minutes (team 1 - team 2)). These stats will reference the players in `game_data.json` and adjust the players' elo accordingly.
 
 ## Elo System
 
@@ -69,13 +77,14 @@ Note that while $K_L$ and $K_G$ will both be based on number of games played, $K
 Current Issues:
 
 - The K values are not perfect and need further calibration
+- Bot lane is considered seperately for bot and support, they might need to be considered as both seperate and as a lane, solely as a lane, or as it is now
 
 ## Post Game
 
 ### Winning lane
 
-Who wins lane will be decided by the gold difference at 15 minutes. Within 500 gold difference is considered equal, however any more will be considered a win or lose. This is a little weird for junglers, we will see how it goes.
+Who wins lane will be decided by the gold difference at 15 minutes. A linear equation between -1000 and 1000 determines a state between 0 (lose) and 1 (win).
 
-### Updating (IN PROGRESS)
+### Updating
 
-After the game, the elo needs to be updated cleanly. Looking for suggestions! the lane stats at 15 minutes (the program can decide it or maybe the lane result can be provided), game results (win or loss), and teams (just in case they are different then what was outputted) should be provided. JSON needs to be updated
+The tool will take the the information and update the elo. After which, the player is updated with the new elo and games played increasing by 1. The new elo is applied after the calculations as to not effect it.

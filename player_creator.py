@@ -28,9 +28,16 @@ role_options: dict = {
     "top": Role.TOP,
     "jg": Role.JG,
     "mid": Role.MID,
+    "adc": Role.BOT,
     "bot": Role.BOT,
     "sup": Role.SUP,
-    "fill": [Role.TOP, Role.JG, Role.MID, Role.BOT, Role.SUP]
+    "fill": Role.FILL,
+    "not top": Role.NOT_TOP,
+    "not jg": Role.NOT_JG,
+    "not mid": Role.NOT_MID,
+    "not bot": Role.NOT_BOT,
+    "not adc": Role.NOT_BOT,
+    "not sup": Role.NOT_SUP
 }
 
 # allow list of strings for parsing
@@ -54,10 +61,7 @@ roles: list[Role] = []
 for entry in args.roles:
     # fill is a list, so extend is used rather then append
     try:
-        if isinstance(role_options[entry], list):
-            roles.extend(role_options[entry])
-        else:
-            roles.append(role_options[entry])
+        roles.append(role_options[entry])
     except:
         pass
 

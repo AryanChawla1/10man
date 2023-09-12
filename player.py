@@ -9,7 +9,7 @@ class Player:
         self.id = Player.id
         Player.id += 1
         self.name = name
-        self.games_played = games_played + 1
+        self.games_played = games_played
         self.elo = elo
         self.roles: list[Role] = []
         for role in roles:
