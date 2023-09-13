@@ -1,7 +1,7 @@
 {
-  "TOP": ["ronald", "kevin"],
-  "JG": ["henry", "josh"],
-  "MID": ["darien", "hamza"],
-  "BOT": ["gael", "alex"],
-  "SUP": ["aryan", "evelyn"]
+  "TOP": ["gael", "andrew"],
+  "JG": ["josh", "ronald"],
+  "MID": ["hamza", "aryan"],
+  "BOT": ["alex", "kevin"],
+  "SUP": ["michael", "evelyn"]
 }
