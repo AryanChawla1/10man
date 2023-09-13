@@ -4,71 +4,71 @@
       "name": "test_1",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 428
+      "games_played": 3,
+      "elo": 451
     },
     {
       "name": "test_2",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 428
+      "games_played": 3,
+      "elo": 455
     },
     {
       "name": "test_3",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 428
+      "games_played": 3,
+      "elo": 476
     },
     {
       "name": "test_4",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 428
+      "games_played": 3,
+      "elo": 397
     },
     {
       "name": "test_5",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 428
+      "games_played": 3,
+      "elo": 395
     },
     {
       "name": "test_6",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 372
+      "games_played": 3,
+      "elo": 428
     },
     {
       "name": "test_7",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 372
+      "games_played": 3,
+      "elo": 428
     },
     {
       "name": "test_8",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 372
+      "games_played": 3,
+      "elo": 326
     },
     {
       "name": "test_9",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 1,
-      "elo": 372
+      "games_played": 3,
+      "elo": 324
     },
     {
       "name": "test_10",
       "rank": "LOW_SILVER",
       "roles": ["FILL"],
-      "games_played": 0,
-      "elo": 400
+      "games_played": 2,
+      "elo": 348
     },
     {
       "name": "adib",
@@ -164,7 +164,7 @@
     {
       "name": "alex",
       "rank": "LOW_EMERALD",
-      "roles": ["BOT", "JG"],
+      "roles": ["FILL"],
       "games_played": 0,
       "elo": 1000
     },

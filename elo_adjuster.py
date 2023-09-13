@@ -1,7 +1,7 @@
 import math
+from statistics import NormalDist
 
 from player import Player
-
 
 LANE_K: int = 16
 GAME_K: int = 10
@@ -21,7 +21,8 @@ def new_elo(player: Player, index: int, enemies: list[Player], gold_diff: int, g
     elif gold_diff <= -1000:
         gold_diff = 0
     else:
-        gold_diff = gold_diff/2000 + 0.5
+        # gold diff is normalized
+        gold_diff = NormalDist(sigma=333.33).cdf(gold_diff)
     # calculate elo adjustment based on lane outcome
     lane_elo = LANE_K/math.floor((player.games_played + 1) / PLAY_FACTOR + 1) * (
         gold_diff - probability(player.elo, enemies[index].elo))
