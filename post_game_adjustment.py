@@ -39,8 +39,12 @@ with open("game_data.json", "r+") as file:
 for i in range(5):
     new_elo_1.append(
         new_elo(team_1[i], i, team_2[:], results[i + 1], results[0] % 2))
+    print(team_1[i].name + ": " + str(team_1[i].elo) +
+          " -> " + str(new_elo_1[i]))
     new_elo_2.append(
         new_elo(team_2[i], i, team_1[:], -1 * results[i + 1], results[0] - 1))
+    print(team_2[i].name + ": " + str(team_2[i].elo) +
+          " -> " + str(new_elo_2[i]))
 
 # update the players
 for i in range(5):
