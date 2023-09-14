@@ -53,12 +53,14 @@ def lane_disparity(team_1_lane: list[Player] | Player, team_2_lane: list[Player]
     # considers bot lane as a whole
     if isinstance(team_1_lane, tuple):
         if abs(get_elo(team_1_lane) - get_elo(team_2_lane)) > 100:
-            return 100
+            # return abs(get_elo(team_1_lane) - get_elo(team_2_lane))
+            return 600
         else:
             return 0
     else:
         if abs(team_1_lane.elo - team_2_lane.elo) > 100:
-            return 100
+            # return abs(team_1_lane.elo - team_2_lane.elo)
+            return 600
         else:
             return 0
 
