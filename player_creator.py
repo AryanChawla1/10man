@@ -1,7 +1,10 @@
 import argparse
 import json
+
+from database_connection import *
 from rank import Rank
 from role import Role
+
 
 # convert strings into the enums, rank enum might be useless...
 ranks: dict = {
@@ -78,15 +81,4 @@ data = {
     "elo": rank.value
 }
 
-# append to json file
-with open("player_info.json", "r+") as file:
-    file_data = json.load(file)
-    players = file_data["players"]
-    for player in players:
-        if player["name"] == data["name"]:
-            raise Exception("Player already included")
-    file_data["players"].append(data)
-    file.seek(0)
-    json.dump(file_data, file, indent=4)
-
-print("Added to Json File!")  # no real error checking tbh
+create_player(data)

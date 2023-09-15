@@ -3,7 +3,7 @@ import json
 
 from elo_adjuster import *
 from player import Player
-from player_utility import *
+from database_connection import *
 
 
 # Allows to have list of strongs for parsing
