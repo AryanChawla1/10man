@@ -31,12 +31,14 @@ python -m venv .\venv
 pip install -r requirements.txt
 ```
 
-- Set Database password (Ask for the value)
+- Set Database password in a .env file(Ask for the value)
 
 For windows:
 
 ```
-$Env:PASSWORD = <password>
+PASSWORD=<value>
+HOST=<value>
+USER=<value>
 ```
 
 ## Tools

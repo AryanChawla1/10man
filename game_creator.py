@@ -3,10 +3,13 @@ import itertools
 import json
 
 from player import Player
-from database_connection import *
+from database_connection import Database
 
+database = Database()
 
 # Allows to have list of strongs for parsing
+
+
 def list_of_strings(arg):
     return arg.split(', ')
 
@@ -108,6 +111,7 @@ def team_creation(players: list[Player]):
             file_data[roles[i]] = [possibilities[index]
                                    [i].name, possibilities[index][i+5].name]
         file.seek(0)
+        file.truncate()
         json.dump(file_data, file, indent=4)
         print("Added to json file!")
 
@@ -123,6 +127,6 @@ if len(args.names) != 10:
 
 players = []
 for name in args.names:
-    players.append(get_player_by_name(name))
+    players.append(database.get_player_by_name(name))
 
 team_creation(players)

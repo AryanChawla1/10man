@@ -1,10 +1,11 @@
 import argparse
 import json
 
-from database_connection import *
+from database_connection import Database
 from rank import Rank
 from role import Role
 
+database = Database()
 
 # convert strings into the enums, rank enum might be useless...
 ranks: dict = {
@@ -81,4 +82,4 @@ data = {
     "elo": rank.value
 }
 
-create_player(data)
+database.create_player(data)

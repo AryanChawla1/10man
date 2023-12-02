@@ -3,10 +3,13 @@ import json
 
 from elo_adjuster import *
 from player import Player
-from database_connection import *
+from database_connection import Database
 
+database = Database()
 
 # Allows to have list of strongs for parsing
+
+
 def list_of_strings(arg):
     return arg.split(', ')
 
@@ -33,8 +36,8 @@ with open("game_data.json", "r+") as file:
     new_elo_1 = []
     new_elo_2 = []
     for i in range(len(roles)):
-        team_1.append(get_player_by_name(file_data[roles[i]][0]))
-        team_2.append(get_player_by_name(file_data[roles[i]][1]))
+        team_1.append(database.get_player_by_name(file_data[roles[i]][0]))
+        team_2.append(database.get_player_by_name(file_data[roles[i]][1]))
 # get the new elos
 for i in range(5):
     new_elo_1.append(
@@ -48,5 +51,5 @@ for i in range(5):
 
 # update the players
 for i in range(5):
-    update_player(team_1[i].name, new_elo_1[i])
-    update_player(team_2[i].name, new_elo_2[i])
+    database.update_player(team_1[i].name, new_elo_1[i])
+    database.update_player(team_2[i].name, new_elo_2[i])
