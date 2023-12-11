@@ -1,5 +1,12 @@
 # League 10 Man Team Creator
 
+## What's New!
+
+- Database for player_info has been created.
+- `player_info.json` depreciated.
+- `database_connection.py` created
+- `player_utility.py` functions moved to `database_connection.py`
+
 ## Description
 
 Elo-based system that can create balanced teams based on player info.
@@ -24,6 +31,16 @@ python -m venv .\venv
 pip install -r requirements.txt
 ```
 
+- Set Database password in a .env file(Ask for the value)
+
+For windows:
+
+```
+PASSWORD=<value>
+HOST=<value>
+USER=<value>
+```
+
 ## Tools
 
 ### Player Creation
@@ -40,6 +57,7 @@ Additionally, after `fill`, `not ...` can be used (eg `not bot`) to signify that
 Current Issues:
 
 - Rank/Elo could be different based on role
+- Preliminary elo is based on rank on a linear scale, however rank amongst players is normally distributed (n > 30).
 
 ### Game Creation
 
@@ -78,13 +96,24 @@ Current Issues:
 
 - The K values are not perfect and need further calibration
 - Bot lane is considered seperately for bot and support, they might need to be considered as both seperate and as a lane, solely as a lane, or as it is now
+- Lane performance at 15 makes players greedy
 
 ## Post Game
 
 ### Winning lane
 
-Who wins lane will be decided by the gold difference at 15 minutes. A linear equation between -1000 and 1000 determines a state between 0 (lose) and 1 (win).
+Who wins lane will be decided by the gold difference at 15 minutes. A normal distribution between -1000 and 1000 determines a state between 0 (lose) and 1 (win).
 
 ### Updating
 
 The tool will take the the information and update the elo. After which, the player is updated with the new elo and games played increasing by 1. The new elo is applied after the calculations as to not effect it.
+
+## Database
+
+The player info is stored on a database with the name, games played, elo, and roles. This is currently the only table present
+
+Current Issues:
+
+- As more people play, name will be the same, should shift to ign
+- Track winrate and other relevant stats
+- Should be made into a class (`connect()` would be part of `__init__()` function)

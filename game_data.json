@@ -1,7 +1,22 @@
 {
-  "TOP": ["gael", "andrew"],
-  "JG": ["josh", "ronald"],
-  "MID": ["hamza", "aryan"],
-  "BOT": ["alex", "kevin"],
-  "SUP": ["michael", "evelyn"]
+    "TOP": [
+        "test_1",
+        "test_2"
+    ],
+    "JG": [
+        "test_4",
+        "test_3"
+    ],
+    "MID": [
+        "test_5",
+        "test_8"
+    ],
+    "BOT": [
+        "test_6",
+        "test_7"
+    ],
+    "SUP": [
+        "test_10",
+        "test_9"
+    ]
 }
