@@ -33,14 +33,6 @@ pip install -r requirements.txt
 
 - Set Database password in a .env file(Ask for the value)
 
-For windows:
-
-```
-PASSWORD=<value>
-HOST=<value>
-USER=<value>
-```
-
 ## Tools
 
 ### Player Creation

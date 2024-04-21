@@ -3,6 +3,7 @@ import os
 import psycopg2
 from dotenv import load_dotenv
 from player import Player
+from custom_exceptions import MissingEnvVariableException, ConnectionException
 
 load_dotenv()
 
@@ -42,12 +43,14 @@ class Database(metaclass=Singleton):
     def connect(self):
         # check to see if env variable is set
         if PASSWORD is None:
-            raise Exception(
+            raise MissingEnvVariableException(
                 "Could not find password in environment variables.")
         if HOST is None:
-            raise Exception("Could not find host in environment variables.")
+            raise MissingEnvVariableException(
+                "Could not find host in environment variables.")
         if USER is None:
-            raise Exception("Could not find user in environment variables.")
+            raise MissingEnvVariableException(
+                "Could not find user in environment variables.")
 
         conn = psycopg2.connect(
             host=HOST,
@@ -57,7 +60,7 @@ class Database(metaclass=Singleton):
         )
 
         if conn is None:
-            raise Exception("Could not connect to Database.")
+            raise ConnectionException("Could not connect to Database.")
         else:
             print("Connected to Database!")
         if not self.playerinfo_initiate:
@@ -97,11 +100,9 @@ class Database(metaclass=Singleton):
             conn.commit()
             print("Player added to Database!")
             cur.close()
+            conn.close()
         except (Exception, psycopg2.DatabaseError) as e:
             print("Could not add player to Database")
-        finally:
-            if conn is not None:
-                conn.close()
 
     # returns Player object by filtering Database for name
     def get_player_by_name(self, name: str):
@@ -119,9 +120,6 @@ class Database(metaclass=Singleton):
             if conn is not None:
                 conn.close()
             return Player(player[1], player[4], player[2], player[3])
-        finally:
-            if conn is not None:
-                conn.close()
 
     # update games_played and elo for player in Database
     def update_player(self, name, elo):
@@ -136,9 +134,6 @@ class Database(metaclass=Singleton):
             cur.close()
         except (Exception, psycopg2.DatabaseError) as error:
             print("Could not update player")
-        finally:
-            if conn is not None:
-                conn.close()
 
 
 # # one time function to migrate contents from json file to database
