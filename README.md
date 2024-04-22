@@ -88,7 +88,9 @@ Rather then just considering the probability against your lane opponent, you wil
 
 Suppose in this case Team 2 wins. However, by some measurement, it is determined that Player A won lane. In this case the formula for Player A's new elo is as shown:
 
-$$ R'_A = R_A + K_L(S_L-E_{AB}) + K*G(S_G-E*{AD})+K*G(S_G-E*{AF})+K*G(S_G-E*{AH})+K*G(S_G-E*{AJ})$$
+```math
+R'_A = R_A + K_L(S_L-E_{AB}) + K_G(S_G-E*{AD})+K_G(S_G-E*{AF})+K_G(S_G-E*{AH})+K_G(S_G-E*{AJ})
+```
 
 Note that while $K_L$ and $K_G$ will both be based on number of games played, $K_L$ will be much larger.
 
